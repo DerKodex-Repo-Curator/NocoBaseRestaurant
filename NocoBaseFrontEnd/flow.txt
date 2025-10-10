@@ -1,0 +1,44 @@
+โปรเจคนี้มี 3 โฟลเดอร์
+NocoBaseRestaurant
+- BocoBaseFrontEnd
+- NocoBaseBackEnd
+- NocoBaseRealTimeServer
+
+โดยตัวที่น่าจะต้องนำไปรันบน cloud คือ 
+- NocoBaseBackEnd
+- NocoBaseRealTimeServer
+
+ซึ่ง NocoBaseBackEnd ผมใช้ docker มี container 2 ตัว คือ app กับ posgresql
+ส่วน NocoBaseRealTimeServer ใช้ socket.io ครับ
+
+ส่วน frontend ผมจะนำไปรันบน share เพราะใช้แค่ html jquery ทั่วไป
+
+รบกวนแนะนำวิธีการ deploy เฉพาะ backend และ realtime server ครับ
+
+Front End
+
+- ไม่ต้อง login ใช้ token ที่ gen ได้จาก nocobase เลย
+- scan qr อ่านเลข id และชื่อโต๊ะ - get bf_tables
+- ได้เลข id แล้ว แสดง menu - get bf_menus
+- เลือกเมนูใส่ตะกร้าคล้ายๆ shoping cart เมื่อพอใจแล้วกด submit ออเดอร์จะถูกส่งไปห้องครัว - post bf_orders + bf_order_items
+- ในหน้า history - get 
+  - แสดงรอบที่สั่ง
+    - ในรอบที่สั่ง มี order menu item
+- ถ้าเวลาหมด ให้ redirect ไปหน้า expire
+
+- gen qr code 
+- เพิ่มแพคเกจ เข้าไปใน orders
+- ราคาต่อหัว
+
+- เพิ่ม popup preview
+- active tab เวลา refresh ให้คง tab เดิมไว้
+- mockup รูปภาพ
+- popup preview บวกลบจำนวนได้
+- เมื่อพนักงานเปลี่ยน status เป็นอย่างอื่นที่ไม่ใช่ active ให้ trick ไปที่เครื่องลูกค้าทุกคนที่มี order id นั้นๆ แล้ว redirect ไปหน้า expire
+
+
+- เมนู คัดเอาเฉพาะอันที่ available
+- lightbox รูปภาพและรายละเอียดเมนู
+- ขยาย scale ให้รองรับหลายร้านหรือหลายสาขา
+- เมื่อเมนูไหน unavailable ให้ trick ไปอัพเดทเมนูให้ลูกค้าด้วย พยายามทำให้ถึง localstorage ลูกค้า 
+- แต่ถ้าลูกค้ากำลังดูอยู่ห้ามสั่ง refresh (อาจจะเช็คว่า quantity ของลูกค้ารวมกันในขณะนั้นเป็น 0 ไหม ถ้าเป็น 0 ให้ refresh หน้า)

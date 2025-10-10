@@ -1,0 +1,44 @@
+# ----------------
+# Docker & Build
+# ----------------
+storage/
+*/storage/
+*.log
+*.pid
+*.sock
+tmp/
+dist/
+build/
+vendor/
+
+# ----------------
+# Environment Files
+# ----------------
+.env
+.env.*
+!.env.example
+
+# ----------------
+# Node / JS
+# ----------------
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+package-lock.json
+yarn.lock
+
+# ----------------
+# IDE & OS Files
+# ----------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ----------------
+# Backups / Misc
+# ----------------
+*.bak
+*.old
+*.swp
